@@ -1,0 +1,32 @@
+@use 'shared';
+
+.item {
+  &__image {
+    height: 200px;
+  }
+
+  &__title {
+    font-size: 1.2rem;
+    font-weight: bold;
+    margin: 0;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex: 1 1 auto;
+
+    & > div {
+      width: 80%;
+    }
+  }
+}
+
+.buttons {
+  gap: 20px;
+
+  button {
+    padding: 0 30px;
+  }
+}

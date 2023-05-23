@@ -1,0 +1,4 @@
+<div class="catalog column">
+  <app-list-item *ngFor="let product of products | async" [product]="product" [mode]="ViewingMode.CATALOG">
+  </app-list-item>
+</div>

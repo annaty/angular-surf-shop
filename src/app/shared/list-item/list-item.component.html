@@ -1,0 +1,53 @@
+<div class="item row">
+  <img [src]="product.image" alt="product image" class="item__image">
+  <ng-container [ngSwitch]="mode">
+    <ng-template [ngSwitchCase]="ViewingMode.CATALOG">
+      <div class="item__content space-between">
+        <div class="column">
+          <div class="row space-between align-center">
+            <h3 class="item__title">{{product.name}}</h3>
+            <span class="item__price">{{product.price}} €</span>
+          </div>
+          <span>Posted by: <a [routerLink]="['/profile', product.userId]">{{product.userName}}</a></span>
+          <span>on {{ product.postedAt | date }}</span>
+          <span>{{product.description}}</span>
+        </div>
+        <div class="row space-between buttons">
+          <button mat-raised-button color="accent" (click)="buy(product.id)">{{ product.sold ? 'Sold!' : 'Buy' }}</button>
+          <button mat-raised-button color="accent">Contact&nbsp;seller</button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngSwitchCase]="ViewingMode.ORDER">
+      <div class="item__content space-between">
+        <div>
+          <div class="row space-between align-center">
+            <h3 class="item__title">{{product.name}}</h3>
+            <span class="item__price">{{product.price}} €</span>
+          </div>
+          <span>{{product.description}}</span>
+        </div>
+        <div class="row space-between buttons">
+          <button mat-raised-button color="accent">Contact&nbsp;seller</button>
+        </div>
+      </div>
+    </ng-template>
+    <ng-template [ngSwitchCase]="ViewingMode.PROFILE">
+      <div class="item__content space-between">
+        <div>
+          <div class="row space-between align-center">
+            <h3 class="item__title">{{product.name}}</h3>
+            <span class="item__price">{{product.price}} €</span>
+          </div>
+          <span>{{product.description}}</span>
+        </div>
+        <div class="row space-between buttons" >
+          <button *ngIf="product.userId === '1'" mat-raised-button color="warn" (click)="deleteItem(product.id)">Delete</button>
+          <button *ngIf="product.userId !== '1'" mat-raised-button color="accent" (click)="buy(product.id)">{{ product.sold ? 'Sold!' : 'Buy' }}</button>
+        </div>
+      </div>
+    </ng-template>
+  </ng-container>
+</div>
+
+

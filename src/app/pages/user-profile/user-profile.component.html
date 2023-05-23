@@ -1,0 +1,16 @@
+<div *ngIf="user; else noUser" class="profile">
+  <div class="profile__info">
+    <h2>{{ user.name }}</h2>
+    <h3>{{user.id === '1' ? 'Your' : 'User' }} rating: {{ user.rating }}</h3>
+  </div>
+  <mat-divider></mat-divider>
+  <div class="profile__items">
+    <h2>{{ user.id === '1' ? 'Your' : 'User' }} listings</h2>
+    <app-list-item *ngFor="let item of items | async" [product]="item" [mode]="ViewingMode.PROFILE"></app-list-item>
+  </div>
+</div>
+<ng-template #noUser>
+  <div>
+    <span>Sorry, we couldn't find a user with this user id</span>
+  </div>
+</ng-template>

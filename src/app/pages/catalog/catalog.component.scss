@@ -1,0 +1,10 @@
+@use 'shared';
+
+.catalog {
+  gap: 20px;
+  padding: 20px 0;
+
+  app-list-item {
+    width: 50%;
+  }
+}

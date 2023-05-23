@@ -1,0 +1,6 @@
+<div class="orders">
+  <h2>Purchased items</h2>
+  <div class="orders__list">
+    <app-list-item *ngFor="let order of orders | async" class="order" [product]="order" [mode]="ViewingMode.ORDER"></app-list-item>
+  </div>
+</div>
