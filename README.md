@@ -1,8 +1,10 @@
 # AngularSurfShop
 
 ## Lancer le projet
-
-Exécuter la commande `ng serve` et puis naviguer vers `http://localhost:4200/`.
+- Se deplacer dans le dossier projet
+- exécuter la commande `npm i`
+- exécuter la commande `ng serve`
+- naviguer vers `http://localhost:4200/` pour voir le site
 
 ## Blocs couverts
 - Catalogue d'annonces
